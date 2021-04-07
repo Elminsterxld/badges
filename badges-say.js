@@ -14,7 +14,8 @@ const emoji = {
    'developers': '<:verifiedbotdev:829111851395973131>',
    'nitro': '<a:nitro:829112247137075239>',
    'boost': '<a:boost:829112247930060820>',
-   'bot': '<:bot:829111855108325406> '
+   'bot': '<:bot:829111855108325406> ',
+   'onaylıbot':'<:verifiedbot:829111850653581394> '
 };
 
    exports.run =  async (client ,message, args) => {
@@ -29,7 +30,7 @@ const emoji = {
     let support = [];
     let developers = [];
     let nitro = [];
-
+    let onaylı =[];
     message.guild.members.cache.forEach(async(m) => {
         const flags = m.user.flags || await m.user.fetchFlags();
         if(flags.toArray().includes('DISCORD_EMPLOYEE')) brigade.push(m.id);
@@ -37,6 +38,7 @@ const emoji = {
         if(flags.toArray().includes('HYPESQUAD_EVENTS')) events.push(m.id);
         if(flags.toArray().includes('HOUSE_BRILLIANCE')) brillance.push(m.id);
         if(flags.toArray().includes('HOUSE_BRAVERY')) bravery.push(m.id);
+        if(flags.toArray().includes('VERIFIED_BOT')) onaylı.push(m.id);
         if(flags.toArray().includes('HOUSE_BALANCE')) balance.push(m.id);
         if(flags.toArray().includes('BUGHUNTER_LEVEL_2')) hunter_gold.push(m.id);
         if(flags.toArray().includes('BUGHUNTER_LEVEL_1')) hunter.push(m.id);
@@ -59,13 +61,14 @@ const emoji = {
    > ${emoji.developers} Verified Developer **${developers.length}**
    > ${emoji.nitro} Nitro **${nitro.length}** (not exact)
    > ${emoji.boost} Server Booster **${message.guild.members.cache.filter(m => m.premiumSinceTimestamp).size}** (not exact)
-   > ${emoji.bot} Bot **${message.guild.members.cache.filter(m => m.user.bot).size}**`;
+   > ${emoji.bot} Bot **${message.guild.members.cache.filter(m => m.user.bot).size}**
+   > ${emoji.onaylıbot} Verified Bot **${onaylı.length}**`;
 //Elminstêr#0007
     const embed = new Discord.MessageEmbed()
     .setColor('#E70000')
     .setDescription(description);
     message.channel.send(embed);
-    Elminstêr#0007
+    //Elminstêr#0007
 };
 exports.conf = {
     enabled: true,
